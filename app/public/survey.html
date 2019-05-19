@@ -1,0 +1,233 @@
+<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Friend Finder</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class="navbar-brand" href="home.html">Friend Finder</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="survey.html">Survey</a>
+        </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+</nav>
+
+<div class="container mt-3 ml-5">
+    <h1 class="display-6">Friend Survey</h1>
+    <form>
+        <br>
+        <div class="form-group">
+            <label for="name" class="font-weight-bold">Name (Required)</label>
+            <textarea class="form-control" id="name" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="photo-link" class="font-weight-bold">Link to Photo Image (Required)</label>
+            <textarea class="form-control" id="photo-link" rows="1"></textarea>
+        </div>
+
+        <p class="font-weight-bold">Question 1</p>
+        <p>Your mind is always buzzing with unexplored ideas and plans.</p>
+        <select data-placeholder="" class="chosen-select" id="q1">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <p class="font-weight-bold">Question 2</p>
+        <p>Generally speaking, you rely more on your experience than your imagination.</p>
+        <select data-placeholder="" class="chosen-select" id="q2">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <p class="font-weight-bold">Question 3</p>
+        <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
+        <select data-placeholder="" class="chosen-select" id="q3">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <p class="font-weight-bold">Question 4</p>
+        <p>You rarely do something just out of sheer curiosity.</p>
+        <select data-placeholder="" class="chosen-select" id="q4">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <p class="font-weight-bold">Question 5</p>
+        <p>People can rarely upset you.</p>
+        <select data-placeholder="" class="chosen-select" id="q5">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <p class="font-weight-bold">Question 6</p>
+        <p>It is often difficult for you to relate to other people’s feelings.</p>
+        <select data-placeholder="" class="chosen-select" id="q6">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <p class="font-weight-bold">Question 7</p>
+        <p>In a discussion, truth should be more important than people’s sensitivities.</p>
+        <select data-placeholder="" class="chosen-select" id="q7">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <p class="font-weight-bold">Question 8</p>
+        <p>You rarely get carried away by fantasies and ideas.</p>
+        <select data-placeholder="" class="chosen-select" id="q8">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <p class="font-weight-bold">Question 9</p>
+        <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+        <select data-placeholder="" class="chosen-select" id="q9">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+        
+        <p class="font-weight-bold">Question 10</p>
+        <p>You feel more energetic after spending time with a group of people.</p>
+        <select data-placeholder="" class="chosen-select" id="q10">
+          <option value= ""></option>
+          <option value= "1">1(Strongly disagree)</option>
+          <option value= "2">2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5 (Strongly Agree)</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+    </form>
+</div>
+
+<div id="result" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+              <button type="button" class="close"  data-dismiss="modal">&times;</button>
+              <h2 class="modal-title">Best Match</h2>
+            </div>
+            <div class="modal-body">
+              <h2 id="matchName"></h2>
+              <img id="matchImg" src="https://via.placeholder.com/400x400"alt="Photo not available">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<script type="text/javascript">
+
+$("#submit").on("click", function (event) {
+   
+    event.preventDefault()
+    function validateForm() {
+        var isValid=true;
+        $('.form-control').each(function(){
+        if ($(this).val() === '')
+            isValid = false;
+        })
+        $('chosen-select').each(function(){
+        if($(this).val()==="")
+            isValid = false;
+        })
+        return isValid;
+    }
+
+    if (validateForm() == true) {
+        var userData = {
+        name: $("#name").val(),
+        photo: $("#photo-link").val(),
+        scores: 
+            [$("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val(),
+            ]
+        }
+        $.post(currentURL + "/api/friends", userData, function(data) {
+            $("#name").text(data.name)
+            $('#photo-link').attr("src", data.photo)
+            $("#result").modal('toggle')
+            })
+
+        } else {
+          alert("please fill out all fields before submitting");
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
